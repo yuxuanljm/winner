@@ -3,7 +3,8 @@
     <!-- 头部区域 -->
     <mt-header fixed title="Vue啦啦啦啦"></mt-header>
     <!-- 中间区域 路由-->
-    <router-view></router-view>
+
+    <transition><router-view></router-view></transition>
     <!-- 底部Tabbar区域 -->
     <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item" to="/home">
@@ -32,6 +33,21 @@
 
 <style lang="scss" scoped>
 .app-containter{
-  padding-top:40px
+  padding-top:40px;
+	overflow-x: hidden;
+}
+.v-enter{
+	opacity: 0;
+	transform:translateX(100%);
+
+}
+.v-leave-to{
+	opacity: 0;
+	transform:translateX(-100%);
+	position:absolute;
+}
+.v-enter-active,
+.v-leave-active{
+	transition: all 0.5s ease
 }
 </style>
